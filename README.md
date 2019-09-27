@@ -19,6 +19,12 @@ func testEnforceWithoutUsers(t *testing.T, e *Enforcer, obj string, act string, 
   }
 }
 
+func testDomainEnforce(t *testin.T, e *Enforcer, sub string, dom string, obj string, act string, res bool) {
+  t.Helper()
+  if myRes, _ := e.Enforce(sub, dom, obj, act); myRes != res {
+    t.Errorf("%s, %s, %s, %s, %s: %t, supposed to be %t", sub, dom, obj, act, myRes, res)
+  }
+}
 
 ```
 
