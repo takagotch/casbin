@@ -26,6 +26,19 @@ func testDomainEnforce(t *testin.T, e *Enforcer, sub string, dom string, obj str
   }
 }
 
+
+type testCustomRoleManager struct{}
+
+func NewRoleManager() rbac.RoleManager {
+  return &testCustomRoleManager{}
+}
+func (rm *testCustomRoleManager) Clear() error { return nil }
+func (rm *testCustomRoleManager) AddLink(name1 string, name2 string, domain ...string) error {
+  return nil
+}
+func (rm *testCustomRoleManager) HasLink(name1 string, name2 string, domain)
+
+
 ```
 
 ```
